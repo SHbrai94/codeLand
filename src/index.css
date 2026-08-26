@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* CodeLand design tokens — change the brand from this single place.
+     Stored as "R G B" triplets so Tailwind can apply opacity modifiers
+     (e.g. bg-turquoise/15) via rgb(var(--x) / <alpha-value>). */
+  --color-navy-rgb: 16 30 63;
+  --color-navy-light-rgb: 28 46 92;
+  --color-turquoise-rgb: 23 195 178;
+  --color-turquoise-light-rgb: 111 224 210;
+  --color-purple-rgb: 108 74 182;
+  --color-purple-light-rgb: 155 130 214;
+  --color-amber-rgb: 255 193 69;
+  --color-surface-rgb: 247 249 252;
+  --color-ink-rgb: 16 23 48;
+  --color-muted-rgb: 91 100 120;
+
+  --color-navy: rgb(var(--color-navy-rgb));
+  --color-navy-light: rgb(var(--color-navy-light-rgb));
+  --color-turquoise: rgb(var(--color-turquoise-rgb));
+  --color-turquoise-light: rgb(var(--color-turquoise-light-rgb));
+  --color-purple: rgb(var(--color-purple-rgb));
+  --color-purple-light: rgb(var(--color-purple-light-rgb));
+  --color-amber: rgb(var(--color-amber-rgb));
+  --color-surface: rgb(var(--color-surface-rgb));
+  --color-ink: rgb(var(--color-ink-rgb));
+  --color-muted: rgb(var(--color-muted-rgb));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: 'Tajawal', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cairo', system-ui, sans-serif;
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 3px solid var(--color-turquoise);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-turquoise-light);
+  color: var(--color-navy);
+}
